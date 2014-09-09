@@ -3,6 +3,7 @@ class Player < ActiveRecord::Base
   belongs_to :position
 
   def tier
+    return 7 if overall_rank == nil
   	return 1 if overall_rank >= 1 && overall_rank <= 15
   	return 2 if overall_rank >= 16 && overall_rank <= 45
   	return 3 if overall_rank >= 46 && overall_rank <= 75
@@ -12,6 +13,7 @@ class Player < ActiveRecord::Base
   end
 
   def shooting_tier
+    return 7 if shooting == nil
     return 1 if shooting >= 45
     return 2 if shooting >= 40 && shooting < 45
     return 3 if shooting >= 35 && shooting < 40
@@ -20,6 +22,7 @@ class Player < ActiveRecord::Base
   end
 
   def defense_tier
+    return 7 if defense == nil
     return 1 if defense >= 1 && defense <= 4
     return 2 if defense >= 5 && defense <= 8
     return 3 if defense >= 9 && defense <= 12
