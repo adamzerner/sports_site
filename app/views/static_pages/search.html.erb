@@ -1,0 +1,8 @@
+<h1>Search results:</h1>
+
+<br />
+<ul class="list-group">
+	<% @results.each do |player| %>
+		<li class="list-group-item"><%= link_to player.name, "/#{player.team.name}/#{player.name}" %></li>
+	<% end %>
+</ul>

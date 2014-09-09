@@ -1,0 +1,33 @@
+#teams_css {
+	.tier1 { background-color: rgba(231, 76, 60, 0.15); }
+	.tier2 { background-color: rgba(230, 126, 34, 0.15); }
+	.tier3 { background-color: rgba(241, 196, 15, 0.15); }
+	.tier4 { background-color: rgba(46, 204, 113, 0.15); }
+	.tier5 { background-color: rgba(52, 152, 219, 0.15); }
+	.tier6 { background-color: rgba(155, 89, 182, 0.15); }
+
+	.depth_chart {
+		width: auto;
+		float: left;
+	}
+	th.position { width: 100px; }
+	th.player { width: 200px; }
+	.key {
+		float: right;
+		p {
+			padding: 10px 30px;
+			cursor: help;
+		}
+	}
+	.tab-content {
+		float: left;
+		width: 100%;
+		tr a {
+			color: inherit !important;
+		}
+	}
+	#contracts {
+		margin-top: 50px;
+		float: left;
+	}
+}

@@ -1,0 +1,32 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+	width: 960px;
+	margin: 25px 50px;
+	.navbar-right {
+		margin-right: 0px !important;
+	}
+	a { color: inherit; }
+	.dropdown-menu {
+		a {
+			font-size: 14px;
+			padding: 3px 20px 3px 20px;
+			color: #333333;
+		}
+		li { height: 26px; }
+		.dropdown-header {
+			height: 23px;
+			margin-bottom: 2px;
+		}
+	}
+	.nav-pills {
+		margin-top: 50px;
+		margin-bottom: 25px;
+	}
+}

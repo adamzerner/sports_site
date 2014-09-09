@@ -1,0 +1,67 @@
+<div id="contracts_css">
+
+<h1>Contracts</h1>
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to 'Players', '#players', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Teams', '#teams', "data-toggle" => "pill" %></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="players">
+  	<table class="table table-striped table-hover table-bordered">
+  		<thead>
+  			<tr>
+  				<th>Rank</th>
+  				<th>Overall</th>
+  				<th>Point Guard</th>
+  				<th>Shooting Guard</th>
+  				<th>Small Forward</th>
+  				<th>Power Forward</th>
+  				<th>Center</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<% rank = 1 %>
+  			<% i = 0 %>
+  			<% len = @players.length %>
+  			<% while i < len %>
+  				<tr>
+  					<td><%= rank %></td>
+  					<td><%= "#{@players[i].name} #{number_to_currency(@players[i].salary14, precision: 0)}" if @players[i] %></td>
+  					<td><%= "#{@point_guards[i].name} #{number_to_currency(@point_guards[i].salary14, precision: 0)}" if @point_guards[i] %></td>
+  					<td><%= "#{@shooting_guards[i].name} #{number_to_currency(@shooting_guards[i].salary14, precision: 0)}" if @shooting_guards[i] %></td>
+  					<td><%= "#{@small_forwards[i].name} #{number_to_currency(@small_forwards[i].salary14, precision: 0)}" if @small_forwards[i] %></td>
+  					<td><%= "#{@power_forwards[i].name} #{number_to_currency(@power_forwards[i].salary14, precision: 0)}" if @power_forwards[i] %></td>
+  					<td><%= "#{@centers[i].name} #{number_to_currency(@centers[i].salary14, precision: 0)}" if @centers[i] %></td>
+  				</tr>
+  				<% rank += 1 %>
+  				<% i += 1 %>
+  			<% end %>
+  		</tbody>
+  	</table>
+  </div>
+  <div class="tab-pane" id="teams">
+  	<table class="table table-striped table-hover table-bordered">
+  		<thead>
+  			<tr>
+  				<th>Rank</th>
+  				<th>Team</th>
+  				<th>2014-15 Salaries</th>
+  			</tr>
+  		</thead>
+  		<tbody>
+  			<% rank = 1 %>
+  			<% @teams.each do |team| %>
+  				<tr>
+  					<td><%= rank %></td>
+  					<td><%= team.name %></td>
+  					<td><%= number_to_currency(team.salary14, precision: 0) %></td>
+  				</tr>
+  				<% rank += 1 %>
+  			<% end %>
+  		</tbody>
+  	</table>
+  </div>
+</div>
+
+</div>

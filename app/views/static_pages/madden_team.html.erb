@@ -1,0 +1,181 @@
+<div id="madden_team_css">
+
+<div class="page-header"><h1><%= @team.name %></h1></div>
+
+<p>Offense</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>POS</th>
+			<th>First</th>
+			<th>Second</th>
+			<th>Third</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>QB</td>
+			<%= content_tag :td, "#{@qb1.first} #{@qb1.last} (#{@qb1.overall})", class: "tier#{@qb1.tier}" if @qb1 %>
+			<%= content_tag :td, "#{@qb2.first} #{@qb2.last} (#{@qb2.overall})", class: "tier#{@qb2.tier}" if @qb2 %>
+			<%= content_tag :td, "#{@qb3.first} #{@qb3.last} (#{@qb3.overall})", class: "tier#{@qb3.tier}" if @qb3 %>
+		</tr>
+		<tr>
+			<td>HB</td>
+			<%= content_tag :td, "#{@hb1.first} #{@hb1.last} (#{@hb1.overall})", class: "tier#{@hb1.tier}" if @hb1 %>
+			<%= content_tag :td, "#{@hb2.first} #{@hb2.last} (#{@hb2.overall})", class: "tier#{@hb2.tier}" if @hb2 %>
+			<%= content_tag :td, "#{@hb3.first} #{@hb3.last} (#{@hb3.overall})", class: "tier#{@hb3.tier}" if @hb3 %>
+		</tr>
+		<tr>
+			<td>FB</td>
+			<%= content_tag :td, "#{@fb1.first} #{@fb1.last} (#{@fb1.overall})", class: "tier#{@fb1.tier}" %>
+			<%= content_tag :td, "#{@fb2.first} #{@fb2.last} (#{@fb2.overall})", class: "tier#{@fb2.tier}" if @fb2 %>
+			<%= content_tag :td, "#{@fb3.first} #{@fb3.last} (#{@fb3.overall})", class: "tier#{@fb3.tier}" if @fb3 %>
+		</tr>
+		<tr>
+			<td>WR1</td>
+			<%= content_tag :td, "#{@wr11.first} #{@wr11.last} (#{@wr11.overall})", class: "tier#{@wr11.tier}" if @wr11 %>
+			<%= content_tag :td, "#{@wr12.first} #{@wr12.last} (#{@wr12.overall})", class: "tier#{@wr12.tier}" if @wr12 %>
+			<%= content_tag :td, "#{@wr13.first} #{@wr13.last} (#{@wr13.overall})", class: "tier#{@wr13.tier}" if @wr13 %>
+		</tr>
+		<tr>
+			<td>WR2</td>
+			<%= content_tag :td, "#{@wr21.first} #{@wr21.last} (#{@wr21.overall})", class: "tier#{@wr21.tier}" if @wr21 %>
+			<%= content_tag :td, "#{@wr22.first} #{@wr22.last} (#{@wr22.overall})", class: "tier#{@wr22.tier}" if @wr22 %>
+			<%= content_tag :td, "#{@wr23.first} #{@wr23.last} (#{@wr23.overall})", class: "tier#{@wr23.tier}" if @wr23 %>
+		</tr>
+		<tr>
+			<td>TE</td>
+			<%= content_tag :td, "#{@te1.first} #{@te1.last} (#{@te1.overall})", class: "tier#{@te1.tier}" %>
+			<%= content_tag :td, "#{@te2.first} #{@te2.last} (#{@te2.overall})", class: "tier#{@te2.tier}" if @te2%>
+			<%= content_tag :td, "#{@te3.first} #{@te3.last} (#{@te3.overall})", class: "tier#{@te3.tier}" if @te3 %>
+		</tr>
+		<tr>
+			<td>LT</td>
+			<%= content_tag :td, "#{@lt1.first} #{@lt1.last} (#{@lt1.overall})", class: "tier#{@lt1.tier}" %>
+			<%= content_tag :td, "#{@lt2.first} #{@lt2.last} (#{@lt2.overall})", class: "tier#{@lt2.tier}" if @lt2 %>
+			<%= content_tag :td, "#{@lt3.first} #{@lt3.last} (#{@lt3.overall})", class: "tier#{@lt3.tier}" if @lt3 %>
+		</tr>
+		<tr>
+			<td>LG</td>
+			<%= content_tag :td, "#{@lg1.first} #{@lg1.last} (#{@lg1.overall})", class: "tier#{@lg1.tier}" %>
+			<%= content_tag :td, "#{@lg2.first} #{@lg2.last} (#{@lg2.overall})", class: "tier#{@lg2.tier}" if @lg2 %>
+			<%= content_tag :td, "#{@lg3.first} #{@lg3.last} (#{@lg3.overall})", class: "tier#{@lg3.tier}" if @lg3 %>
+		</tr>
+		<tr>
+			<td>C</td>
+			<%= content_tag :td, "#{@c1.first} #{@c1.last} (#{@c1.overall})", class: "tier#{@c1.tier}" if @c1 %>
+			<%= content_tag :td, "#{@c2.first} #{@c2.last} (#{@c2.overall})", class: "tier#{@c2.tier}" if @c2 %>
+			<%= content_tag :td, "#{@c3.first} #{@c3.last} (#{@c3.overall})", class: "tier#{@c3.tier}" if @c3 %>
+		</tr>
+		<tr>
+			<td>RG</td>
+			<%= content_tag :td, "#{@rg1.first} #{@rg1.last} (#{@rg1.overall})", class: "tier#{@rg1.tier}" %>
+			<%= content_tag :td, "#{@rg2.first} #{@rg2.last} (#{@rg2.overall})", class: "tier#{@rg2.tier}" if @rg2 %>
+			<%= content_tag :td, "#{@rg3.first} #{@rg3.last} (#{@rg3.overall})", class: "tier#{@rg3.tier}" if @rg3 %>
+		</tr>
+		<tr>
+			<td>RT</td>
+			<%= content_tag :td, "#{@rt1.first} #{@rt1.last} (#{@rt1.overall})", class: "tier#{@rt1.tier}" %>
+			<%= content_tag :td, "#{@rt2.first} #{@rt2.last} (#{@rt2.overall})", class: "tier#{@rt2.tier}" if @rt2 %>
+			<%= content_tag :td, "#{@rt3.first} #{@rt3.last} (#{@rt3.overall})", class: "tier#{@rt3.tier}" if @rt3 %>
+		</tr>
+	</tbody>
+</table>
+
+<p>Defense</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>POS</th>
+			<th>First</th>
+			<th>Second</th>
+			<th>Third</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>RE</td>
+			<%= content_tag :td, "#{@re1.first} #{@re1.last} (#{@re1.overall})", class: "tier#{@re1.tier}" if @re1 %>
+			<%= content_tag :td, "#{@re2.first} #{@re2.last} (#{@re2.overall})", class: "tier#{@re2.tier}" if @re2 %>
+			<%= content_tag :td, "#{@re3.first} #{@re3.last} (#{@re3.overall})", class: "tier#{@re3.tier}" if @re3 %>
+		</tr>
+		<tr>
+			<td>DT</td>
+			<%= content_tag :td, "#{@dt1.first} #{@dt1.last} (#{@dt1.overall})", class: "tier#{@dt1.tier}" if @dt1 %>
+			<%= content_tag :td, "#{@dt2.first} #{@dt2.last} (#{@dt2.overall})", class: "tier#{@dt2.tier}" if @dt2 %>
+			<%= content_tag :td, "#{@dt3.first} #{@dt3.last} (#{@dt3.overall})", class: "tier#{@dt3.tier}" if @dt3 %>
+		</tr>
+		<tr>
+			<td>LE</td>
+			<%= content_tag :td, "#{@le1.first} #{@le1.last} (#{@le1.overall})", class: "tier#{@le1.tier}" if @le1 %>
+			<%= content_tag :td, "#{@le2.first} #{@le2.last} (#{@le2.overall})", class: "tier#{@le2.tier}" if @le2 %>
+			<%= content_tag :td, "#{@le3.first} #{@le3.last} (#{@le3.overall})", class: "tier#{@le3.tier}" if @le3 %>
+		</tr>
+		<tr>
+			<td>ROLB</td>
+			<%= content_tag :td, "#{@rolb1.first} #{@rolb1.last} (#{@rolb1.overall})", class: "tier#{@rolb1.tier}" if @rolb1 %>
+			<%= content_tag :td, "#{@rolb2.first} #{@rolb2.last} (#{@rolb2.overall})", class: "tier#{@rolb2.tier}" if @rolb2 %>
+			<%= content_tag :td, "#{@rolb3.first} #{@rolb3.last} (#{@rolb3.overall})", class: "tier#{@rolb3.tier}" if @rolb3 %>
+		</tr>
+		<tr>
+			<td>MLB</td>
+			<%= content_tag :td, "#{@mlb1.first} #{@mlb1.last} (#{@mlb1.overall})", class: "tier#{@mlb1.tier}" if @mlb1 %>
+			<%= content_tag :td, "#{@mlb2.first} #{@mlb2.last} (#{@mlb2.overall})", class: "tier#{@mlb2.tier}" if @mlb2 %>
+			<%= content_tag :td, "#{@mlb3.first} #{@mlb3.last} (#{@mlb3.overall})", class: "tier#{@mlb3.tier}" if @mlb3 %>
+		</tr>
+		<tr>
+			<td>LOLB</td>
+			<%= content_tag :td, "#{@lolb1.first} #{@lolb1.last} (#{@lolb1.overall})", class: "tier#{@lolb1.tier}" if @lolb1 %>
+			<%= content_tag :td, "#{@lolb2.first} #{@lolb2.last} (#{@lolb2.overall})", class: "tier#{@lolb2.tier}" if @lolb2 %>
+			<%= content_tag :td, "#{@lolb3.first} #{@lolb3.last} (#{@lolb3.overall})", class: "tier#{@lolb3.tier}" if @lolb3 %>
+		</tr>
+		<tr>
+			<td>CB1</td>
+			<%= content_tag :td, "#{@cb11.first} #{@cb11.last} (#{@cb11.overall})", class: "tier#{@cb11.tier}" if @cb11 %>
+			<%= content_tag :td, "#{@cb12.first} #{@cb12.last} (#{@cb12.overall})", class: "tier#{@cb12.tier}" if @cb12 %>
+			<%= content_tag :td, "#{@cb13.first} #{@cb13.last} (#{@cb13.overall})", class: "tier#{@cb13.tier}" if @cb13 %>
+		</tr>
+		<tr>
+			<td>CB2</td>
+			<%= content_tag :td, "#{@cb21.first} #{@cb21.last} (#{@cb21.overall})", class: "tier#{@cb21.tier}" if @cb21 %>
+			<%= content_tag :td, "#{@cb22.first} #{@cb22.last} (#{@cb22.overall})", class: "tier#{@cb22.tier}" if @cb22 %>
+			<%= content_tag :td, "#{@cb23.first} #{@cb23.last} (#{@cb23.overall})", class: "tier#{@cb23.tier}" if @cb23 %>
+		</tr>
+		<tr>
+			<td>FS</td>
+			<%= content_tag :td, "#{@fs1.first} #{@fs1.last} (#{@fs1.overall})", class: "tier#{@fs1.tier}" if @fs1 %>
+			<%= content_tag :td, "#{@fs2.first} #{@fs2.last} (#{@fs2.overall})", class: "tier#{@fs2.tier}" if @fs2 %>
+			<%= content_tag :td, "#{@fs3.first} #{@fs3.last} (#{@fs3.overall})", class: "tier#{@fs3.tier}" if @fs3 %>
+		</tr>
+		<tr>
+			<td>SS</td>
+			<%= content_tag :td, "#{@ss1.first} #{@ss1.last} (#{@ss1.overall})", class: "tier#{@ss1.tier}" %>
+			<%= content_tag :td, "#{@ss2.first} #{@ss2.last} (#{@ss2.overall})", class: "tier#{@ss2.tier}" if @ss2 %>
+			<%= content_tag :td, "#{@ss3.first} #{@ss3.last} (#{@ss3.overall})", class: "tier#{@ss3.tier}" if @ss3 %>
+		</tr>
+	</tbody>
+</table>
+
+<p>Special Teams</p>
+<table class="table">
+	<thead>
+		<tr>
+			<th>POS</th>
+			<th>First</th>
+			<th>Second</th>
+			<th>Third</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>K</td>
+			<%= content_tag :td, "#{@k1.first} #{@k1.last} (#{@k1.overall})", class: "tier#{@k1.tier}" %>
+		</tr>
+		<tr>
+			<td>P</td>
+			<%= content_tag :td, "#{@p1.first} #{@p1.last} (#{@p1.overall})", class: "tier#{@p1.tier}" %>
+		</tr>
+	</tbody>
+</table>
+
+</div>

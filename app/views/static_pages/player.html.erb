@@ -1,0 +1,154 @@
+<div id="player_css">
+
+<div class="page-header">
+  <h1><%= @player.name %> <small><%= link_to "#{@player.team.location} #{@player.team.name}", "/#{@player.team.name.downcase}" %></small></h1>
+</div>
+
+<section id="top">
+	<%= image_tag "#{@player.link}.jpg", size: "220x307" %>
+	<div id="main_info">
+		<table class="table table-bordered table-striped">
+			<thead>
+				<tr>
+					<th>PPG</th>
+					<th>PPP</th>
+					<th>3P%</th>
+					<th>APG</th>
+					<th>RPG</th>
+					<th>BPG</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><%= @player.pts13 %></td>
+					<td><%= "---" %></td>
+					<td><%= @player.tpp13 %></td>
+					<td><%= @player.ast13 %></td>
+					<td><%= @player.reb13 %></td>
+					<td><%= @player.blk13 %></td>
+				</tr>
+			</tbody>
+		</table>
+		<ul class="list-group">
+			<li class="list-group-item"><%= "#{@player.height}, #{@player.weight}lbs" %></li>
+			<li class="list-group-item">Age: <%= @player.age if @player.age %> (<%= "#{@player.exp.to_i+1}" if @player.exp %> yrs)</li>
+			<li class="list-group-item">College: <%= @player.college if @player.college %></li>
+			<!-- <li class="list-group-item">Drafted: 1st Rnd, 1st by SA ('97)</li>
+			<li class="list-group-item">Hometown: Virgin Islands</li> -->
+		</ul>
+	</div>
+	<div id="analysis">
+		<!-- <h4>4th Center - - - 26th Overall</h4> -->
+		<h4>
+			<% if @player.position_rank > 0 %>
+				<%= "#{@player.position_rank.ordinalize} #{@player.position.name} - - - #{@player.overall_rank.ordinalize} Overall" %>
+			<% else %>
+				Analysis
+			<% end %>
+		</h4>
+		<ul>
+			<% @player.analysis.split("|").each do |line| %>
+				<li><%= line %></li>
+			<% end %>
+		</ul>
+	</div>
+</section>
+<section id="stats">
+	<ul class="nav nav-pills">
+	  <li class="active"><%= link_to 'Per Game', '#per_game', "data-toggle" => "pill" %></li>
+	  <li><%= link_to 'Per 36', '#per_36', "data-toggle" => "pill" %></li>
+	</ul>
+
+	<div class="tab-content">
+  		<div class="tab-pane active" id="per_game">
+  			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>Season</th>
+						<th>GS</th>
+						<th>GP</th>
+						<th>MIN</th>
+						<th>FGM-A</th>
+						<th>FG%</th>
+						<th>3PM-A</th>
+						<th>3P%</th>
+						<th>FTM-A</th>
+						<th>FT%</th>
+						<th>OR</th>
+						<th>DR</th>
+						<th>REB</th>
+						<th>BLK</th>
+						<th>STL</th>
+						<th>PF</th>
+						<th>AST</th>
+						<th>TO</th>
+						<th>PPP</th>
+						<th>PTS</th>
+					</tr>
+				</thead>
+				<tbody>
+					<% seasons = ["14-15","13-14","12-13","11-12","10-11","09-10","08-09","07-08","06-07","05-06","04-05","03-04","02-03","01-02","00-01","99-00","98-99","97-98"] %>
+					<% seasons.each do |season| %>
+						<% if @player.read_attribute("gp#{season[0,2]}") %>
+							<%= "<tr class='warning'>".html_safe if season == '13-14' %>
+							<%= "<tr>".html_safe if season != '13-14' %>
+								<td><%= season %></td>
+								<% season = season[0,2] %>
+								<td><%= @player.read_attribute("gs#{season}") %></td>
+								<td><%= @player.read_attribute("gp#{season}") %></td>
+								<td><%= @player.read_attribute("min#{season}") %></td>
+								<td><%= @player.read_attribute("fgm#{season}").to_s + "-" + @player.read_attribute("fga#{season}").to_s %></td>
+								<td><%= @player.read_attribute("fgp#{season}") %></td>
+								<td><%= @player.read_attribute("tpm#{season}").to_s + "-" + @player.read_attribute("tpa#{season}").to_s %></td>
+								<td><%= @player.read_attribute("tpp#{season}") %></td>
+								<td><%= @player.read_attribute("ftm#{season}").to_s + "-" + @player.read_attribute("fta#{season}").to_s %></td>
+								<td><%= @player.read_attribute("ftp#{season}") %></td>
+								<td><%= @player.read_attribute("or#{season}") %></td>
+								<td><%= @player.read_attribute("dr#{season}") %></td>
+								<td><%= @player.read_attribute("reb#{season}") %></td>
+								<td><%= @player.read_attribute("blk#{season}") %></td>
+								<td><%= @player.read_attribute("stl#{season}") %></td>
+								<td><%= @player.read_attribute("pf#{season}") %></td>
+								<td><%= @player.read_attribute("ast#{season}") %></td>
+								<td><%= @player.read_attribute("to#{season}") %></td>
+								<td>---</td>
+								<td><%= @player.read_attribute("pts#{season}") %></td>
+							</tr>
+						<% end %>
+					<% end %>
+					<tr>
+						<td>Career</td>
+						<td><%= @player.read_attribute("gsre") %></td>
+						<td><%= @player.read_attribute("gpre") %></td>
+						<td><%= @player.read_attribute("minre") %></td>
+						<td><%= @player.read_attribute("fgmre").to_s + "-" + @player.read_attribute("fgare").to_s %></td>
+						<td><%= @player.read_attribute("fgpre") %></td>
+						<td><%= @player.read_attribute("tpmre").to_s + "-" + @player.read_attribute("tpare").to_s %></td>
+						<td><%= @player.read_attribute("tppre") %></td>
+						<td><%= @player.read_attribute("ftmre").to_s + "-" + @player.read_attribute("ftare").to_s %></td>
+						<td><%= @player.read_attribute("ftpre") %></td>
+						<td><%= @player.read_attribute("orre") %></td>
+						<td><%= @player.read_attribute("drre") %></td>
+						<td><%= @player.read_attribute("rebre") %></td>
+						<td><%= @player.read_attribute("blkre") %></td>
+						<td><%= @player.read_attribute("stlre") %></td>
+						<td><%= @player.read_attribute("pfre") %></td>
+						<td><%= @player.read_attribute("astre") %></td>
+						<td><%= @player.read_attribute("tore") %></td>
+						<td>---</td>
+						<td><%= @player.read_attribute("ptsre") %></td>
+					</tr>
+				</tbody>
+			</table>
+  		</div>
+  		<div class="tab_pane" id="per_36">
+  			<%= @player.video.html_safe if @player.video %>
+  		</div>
+  	</div>
+</section>
+
+<section id="other">
+
+</section>
+
+</div>

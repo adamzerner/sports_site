@@ -1,0 +1,21 @@
+A sports website for me to practice coding with, and because it's something I'd want to use.
+
+To Do:
+- written analysis of players
+- address seasons where a player played for >1 team
+- address links to players with dots (J.J., J.R. P.J.)
+- points per possession
+- per 36 stats, per x possessions stats
+- home page
+- team stats
+- measurables from draftexpess
+- more pictures
+- rotation
+- video analysis (like draftexpress)
+- articles
+- draft stuff, past history analysis
+- mock drafter
+- trade machine
+- player ranker
+
+- it'd be cool if this site could make scouting easy. it'd have skimmable videos. each video would be of a specific skill. say, Jimmy Butler's crossover. or Marco Belinelli pump faking leading into a jumper.

@@ -1,0 +1,105 @@
+<h1>Player Rankings</h1>
+
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to 'Overall', '#overall', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Shooting', '#shooting', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Defense', '#defense', "data-toggle" => "pill" %></li>
+</ul>
+
+<div class="tab-content">
+  <div class="tab-pane active" id="overall">
+  	<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Overall</th>
+					<th>Point Guard</th>
+					<th>Shooting Guard</th>
+					<th>Small Forward</th>
+					<th>Power Forward</th>
+					<th>Center</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% i = 0 %>
+				<% len = @players.length %>
+				<% while i < len %>
+					<tr>
+						<td><%= i + 1 %></td>
+						<td><%= link_to @players[i].name, "/#{@players[i].team.name.downcase}/#{@players[i].link}" if @players[i] %></td>
+						<td><%= link_to @point_guards[i].name, "/#{@point_guards[i].team.name.downcase}/#{@point_guards[i].link}" if @point_guards[i] %></td>
+						<td><%= link_to @shooting_guards[i].name, "/#{@shooting_guards[i].team.name.downcase}/#{@shooting_guards[i].link}" if @shooting_guards[i] %></td>
+						<td><%= link_to @small_forwards[i].name, "/#{@small_forwards[i].team.name.downcase}/#{@small_forwards[i].link}" if @small_forwards[i] %></td>
+						<td><%= link_to @power_forwards[i].name, "/#{@power_forwards[i].team.name.downcase}/#{@power_forwards[i].link}" if @power_forwards[i] %></td>
+						<td><%= link_to @centers[i].name, "/#{@centers[i].team.name.downcase}/#{@centers[i].link}" if @centers[i] %></td>
+					</tr>
+					<% i += 1 %>
+				<% end %>
+			</tbody>
+		</table>
+  </div>
+  <div class="tab-pane" id="shooting">
+  	<div class="panel panel-default">
+		  <div class="panel-body">
+		    Adjusted 3P% (adjusted for volume, shot difficulty, and mid-range ability)
+		  </div>
+		</div>
+  	<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Overall</th>
+					<th>Point Guard</th>
+					<th>Shooting Guard</th>
+					<th>Small Forward</th>
+					<th>Power Forward</th>
+					<th>Center</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% i = 0 %>
+				<% while i < 100 %>
+					<tr>
+						<td><%= i + 1 %></td>
+						<td><%= link_to "#{@players_shooting[i].name} (#{@players_shooting[i].shooting})", "/#{@players_shooting[i].team.name.downcase}/#{@players_shooting[i].link}" if @players_shooting[i] %></td>
+						<td><%= link_to "#{@point_guards_shooting[i].name} (#{@point_guards_shooting[i].shooting})", "/#{@point_guards_shooting[i].team.name.downcase}/#{@point_guards_shooting[i].link}" if @point_guards_shooting[i] %></td>
+						<td><%= link_to "#{@shooting_guards_shooting[i].name} (#{@shooting_guards_shooting[i].shooting})", "/#{@shooting_guards_shooting[i].team.name.downcase}/#{@shooting_guards_shooting[i].link}" if @shooting_guards_shooting[i] %></td>
+						<td><%= link_to "#{@small_forwards_shooting[i].name} (#{@small_forwards_shooting[i].shooting})", "/#{@small_forwards_shooting[i].team.name.downcase}/#{@small_forwards_shooting[i].link}" if @small_forwards_shooting[i] %></td>
+						<td><%= link_to "#{@power_forwards_shooting[i].name} (#{@power_forwards_shooting[i].shooting})", "/#{@power_forwards_shooting[i].team.name.downcase}/#{@power_forwards_shooting[i].link}" if @power_forwards_shooting[i] %></td>
+						<td><%= link_to "#{@centers_shooting[i].name} (#{@centers_shooting[i].shooting})", "/#{@centers_shooting[i].team.name.downcase}/#{@centers_shooting[i].link}" if @centers[i] %></td>
+					</tr>
+					<% i += 1 %>
+				<% end %>
+			</tbody>
+		</table>
+  </div>
+  <div class="tab-pane" id="defense">
+  	<table class="table table-striped table-hover">
+			<thead>
+				<tr>
+					<th>Rank</th>
+					<th>Point Guard</th>
+					<th>Shooting Guard</th>
+					<th>Small Forward</th>
+					<th>Power Forward</th>
+					<th>Center</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% i = 0 %>
+				<% while i < 20 %>
+					<tr>
+						<td><%= i + 1 %></td>
+						<td><%= link_to @point_guards_defense[i].name, "/#{@point_guards_defense[i].team.name.downcase}/#{@point_guards_defense[i].link}" if @point_guards_defense[i] %></td>
+						<td><%= link_to @shooting_guards_defense[i].name, "/#{@shooting_guards_defense[i].team.name.downcase}/#{@shooting_guards_defense[i].link}" if @shooting_guards_defense[i] %></td>
+						<td><%= link_to @small_forwards_defense[i].name, "/#{@small_forwards_defense[i].team.name.downcase}/#{@small_forwards_defense[i].link}" if @small_forwards_defense[i] %></td>
+						<td><%= link_to @power_forwards_defense[i].name, "/#{@power_forwards_defense[i].team.name.downcase}/#{@power_forwards_defense[i].link}" if @power_forwards_defense[i] %></td>
+						<td><%= link_to @centers_defense[i].name, "/#{@centers_defense[i].team.name.downcase}/#{@centers_defense[i].link}" if @centers_defense[i] %></td>
+					</tr>
+					<% i += 1 %>
+				<% end %>
+			</tbody>
+		</table>
+  </div>
+  </div>
+</div>

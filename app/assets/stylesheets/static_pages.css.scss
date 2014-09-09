@@ -1,0 +1,42 @@
+#player_css {
+	h1 > small > a { color: inherit; }
+	#top {
+		float: left;
+		width: 100%;
+		margin-bottom: 50px;
+		img {
+			float: left;
+		}
+		#main_info, #analysis {
+			float: left;
+			clear: none;
+			margin-left: 20px;
+		}
+		#analysis {
+			width: 385px;
+			h4 {
+				text-align: center;
+				text-decoration: underline;
+			}
+		}
+	}
+}
+
+#madden_teams_css {
+	.conference {
+		float: left;
+		width: 300px;
+	}
+	.conference:first-of-type {
+		margin-right: 25px;
+	}
+}
+
+#madden_team_css {
+	.tier1 { background-color: rgba(231, 76, 60, 0.15); }
+	.tier2 { background-color: rgba(230, 126, 34, 0.15); }
+	.tier3 { background-color: rgba(241, 196, 15, 0.15); }
+	.tier4 { background-color: rgba(46, 204, 113, 0.15); }
+	.tier5 { background-color: rgba(52, 152, 219, 0.15); }
+	.tier6 { background-color: rgba(155, 89, 182, 0.15); }
+}

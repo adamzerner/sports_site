@@ -1,0 +1,368 @@
+<div id="teams_css">
+
+<h1><%= @team.location + " " + @team.name %></h1>
+<p>Division: <%= @team.division %></p>
+<p>Coach: <%= @team.coach %></p>
+<ul class="nav nav-pills">
+  <li class="active"><%= link_to 'Overall', '#overall', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Shooting', '#shooting', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Defense', '#defense', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Size', '#size', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'Rotation', '#rotation', "data-toggle" => "pill" %></li>
+  <li><%= link_to 'None', '#none', "data-toggle" => "pill" %></li>
+</ul>
+
+
+<div class="tab-content">
+  <div class="tab-pane active" id="overall">
+  	<table class="table depth_chart">
+			<thead>
+				<tr>
+					<th class="position"></td>
+					<th class="player">Starter</th>
+					<th class="player">2nd</th>
+					<th class="player">3rd</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<tr>
+						<td>PG</td>
+						<% @point_guards.each do |pg| %>
+							<% puts pg.name # working %>
+							<%= content_tag :td, class: "tier#{pg.tier}" do -%>
+								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SG</td>
+						<% @shooting_guards.each do |sg| %>
+							<%= content_tag :td, class: "tier#{sg.tier}" do -%>
+								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SF</td>
+						<% @small_forwards.each do |sf| %>
+							<%= content_tag :td, class: "tier#{sf.tier}" do -%>
+								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>PF</td>
+						<% @power_forwards.each do |pf| %>
+							<%= content_tag :td, class: "tier#{pf.tier}" do -%>
+								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>C</td>
+						<% @centers.each do |c| %>
+							<%= content_tag :td, class: "tier#{c.tier}" do -%>
+								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+				</tr>
+			</tbody>
+		</table>
+		<div class="key">
+			<p class="tier1" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 1-15 (good best player)">Tier 1</p>
+			<p class="tier2" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 16-45 (good second best player)">Tier 2</p>
+			<p class="tier3" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 46-75 (good third best player)">Tier 3</p>
+			<p class="tier4" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 76-105 (good fourth best player)">Tier 4</p>
+			<p class="tier5" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 106-135 (good fifth best player)">Tier 5</p>
+			<p class="tier6" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 136-175 (good sixth man)">Tier 6</p>
+		</div>
+  </div>
+  <div class="tab-pane" id="shooting">
+  	<table class="table depth_chart">
+			<thead>
+				<tr>
+					<th class="position"></td>
+					<th class="player">Starter</th>
+					<th class="player">2nd</th>
+					<th class="player">3rd</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<tr>
+						<td>PG</td>
+						<% @point_guards.each do |pg| %>
+							<%= content_tag :td, class: "tier#{pg.shooting_tier}" do -%>
+								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SG</td>
+						<% @shooting_guards.each do |sg| %>
+							<%= content_tag :td, class: "tier#{sg.shooting_tier}" do -%>
+								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SF</td>
+						<% @small_forwards.each do |sf| %>
+							<%= content_tag :td, class: "tier#{sf.shooting_tier}" do -%>
+								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>PF</td>
+						<% @power_forwards.each do |pf| %>
+							<%= content_tag :td, class: "tier#{pf.shooting_tier}" do -%>
+								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>C</td>
+						<% @centers.each do |c| %>
+							<%= content_tag :td, class: "tier#{c.shooting_tier}" do -%>
+								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+				</tr>
+			</tbody>
+		</table>
+		<div class="key">
+			<p class="tier1" data-container="body" data-toggle="popover" data-placement="left" data-content=">45% adjusted 3P%">Tier 1</p>
+			<p class="tier2" data-container="body" data-toggle="popover" data-placement="left" data-content="40-45% adjusted 3P%">Tier 2</p>
+			<p class="tier3" data-container="body" data-toggle="popover" data-placement="left" data-content="35-40% adjusted 3P%">Tier 3</p>
+			<p class="tier4" data-container="body" data-toggle="popover" data-placement="left" data-content="30-35% adjusted 3P%">Tier 4</p>
+			<p class="tier5" data-container="body" data-toggle="popover" data-placement="left" data-content="25-30% adjusted 3P%">Tier 5</p>
+		</div>
+  </div>
+  <div class="tab-pane" id="defense">
+  	<table class="table depth_chart">
+			<thead>
+				<tr>
+					<th class="position"></td>
+					<th class="player">Starter</th>
+					<th class="player">2nd</th>
+					<th class="player">3rd</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<tr>
+						<td>PG</td>
+						<% @point_guards.each do |pg| %>
+							<%= content_tag :td, class: "tier#{pg.defense_tier}" do -%>
+								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SG</td>
+						<% @shooting_guards.each do |sg| %>
+							<%= content_tag :td, class: "tier#{sg.defense_tier}" do -%>
+								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SF</td>
+						<% @small_forwards.each do |sf| %>
+							<%= content_tag :td, class: "tier#{sf.defense_tier}" do -%>
+								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>PF</td>
+						<% @power_forwards.each do |pf| %>
+							<%= content_tag :td, class: "tier#{pf.defense_tier}" do -%>
+								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>C</td>
+						<% @centers.each do |c| %>
+							<%= content_tag :td, class: "tier#{c.defense_tier}" do -%>
+								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+				</tr>
+			</tbody>
+		</table>
+		<div class="key">
+			<p class="tier1" data-container="body" data-toggle="popover" data-placement="left" data-content="Positional rank: 1-4">Tier 1</p>
+			<p class="tier2" data-container="body" data-toggle="popover" data-placement="left" data-content="Positional rank: 5-8">Tier 2</p>
+			<p class="tier3" data-container="body" data-toggle="popover" data-placement="left" data-content="Positional rank: 9-12">Tier 3</p>
+			<p class="tier4" data-container="body" data-toggle="popover" data-placement="left" data-content="Positional rank: 13-16">Tier 4</p>
+			<p class="tier5" data-container="body" data-toggle="popover" data-placement="left" data-content="Positional rank: 17-20">Tier 5</p>
+		</div>
+  </div>
+  <div class="tab-pane" id="size">
+  	<table class="table depth_chart">
+			<thead>
+				<tr>
+					<th class="position"></td>
+					<th class="player">Starter</th>
+					<th class="player">2nd</th>
+					<th class="player">3rd</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<tr>
+						<td>PG</td>
+						<% @point_guards.each do |pg| %>
+							<%= content_tag :td, class: "tier#{pg.tier}" do -%>
+								<%= link_to "#{pg.name} #{pg.height}", "/#{@team.name.downcase}/#{pg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SG</td>
+						<% @shooting_guards.each do |sg| %>
+							<%= content_tag :td, class: "tier#{sg.tier}" do -%>
+								<%= link_to "#{sg.name} #{sg.height}", "/#{@team.name.downcase}/#{sg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SF</td>
+						<% @small_forwards.each do |sf| %>
+							<%= content_tag :td, class: "tier#{sf.tier}" do -%>
+								<%= link_to "#{sf.name} #{sf.height}", "/#{@team.name.downcase}/#{sf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>PF</td>
+						<% @power_forwards.each do |pf| %>
+							<%= content_tag :td, class: "tier#{pf.tier}" do -%>
+								<%= link_to "#{pf.name} #{pf.height}", "/#{@team.name.downcase}/#{pf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>C</td>
+						<% @centers.each do |c| %>
+							<%= content_tag :td, class: "tier#{c.tier}" do -%>
+								<%= link_to "#{c.name} #{c.height}", "/#{@team.name.downcase}/#{c.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+				</tr>
+			</tbody>
+		</table>
+		<div class="key">
+			<p class="tier1" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 1-15 (good best player)">Tier 1</p>
+			<p class="tier2" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 16-45 (good second best player)">Tier 2</p>
+			<p class="tier3" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 46-75 (good third best player)">Tier 3</p>
+			<p class="tier4" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 76-105 (good fourth best player)">Tier 4</p>
+			<p class="tier5" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 106-135 (good fifth best player)">Tier 5</p>
+			<p class="tier6" data-container="body" data-toggle="popover" data-placement="left" data-content="Rank: 136-175 (good sixth man)">Tier 6</p>
+		</div>
+  </div>
+  <div class="tab-pane" id="rotation">...</div>
+  <div class="tab-pane" id="none">
+  	<table class="table depth_chart">
+			<thead>
+				<tr>
+					<th class="position"></td>
+					<th class="player">Starter</th>
+					<th class="player">2nd</th>
+					<th class="player">3rd</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<tr>
+						<td>PG</td>
+						<% @point_guards.each do |pg| %>
+							<%= content_tag :td do -%>
+								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SG</td>
+						<% @shooting_guards.each do |sg| %>
+							<%= content_tag :td do -%>
+								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>SF</td>
+						<% @small_forwards.each do |sf| %>
+							<%= content_tag :td do -%>
+								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>PF</td>
+						<% @power_forwards.each do |pf| %>
+							<%= content_tag :td do -%>
+								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+					<tr>
+						<td>C</td>
+						<% @centers.each do |c| %>
+							<%= content_tag :td do -%>
+								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+							<% end -%>
+						<% end %>
+					</tr>
+				</tr>
+			</tbody>
+		</table>
+  </div>
+</div>
+
+<section id="contracts">
+	<h2>Contracts</h2>
+	<table class="table table-striped table-hover table-bordered">
+		<thead>
+			<tr>
+				<th></th>
+				<th>14-15</th>
+				<th>15-16</th>
+				<th>16-17</th>
+				<th>17-18</th>
+				<th>18-19</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @players.each do |player| %>
+				<tr>
+					<td><%= player.name %></td>
+					<td><%= number_to_currency(player.salary14, precision: 0) %></td>
+					<td><%= number_to_currency(player.salary15, precision: 0) %></td>
+					<td><%= number_to_currency(player.salary16, precision: 0) %></td>
+					<td><%= number_to_currency(player.salary17, precision: 0) %></td>
+					<td><%= number_to_currency(player.salary18, precision: 0) %></td>
+				</tr>
+			<% end %>
+			<tr>
+				<td>Total:</td>
+				<td><%= number_to_currency(@team.salary14, precision: 0) %></td>
+				<td><%= number_to_currency(@team.salary15, precision: 0) %></td>
+				<td><%= number_to_currency(@team.salary16, precision: 0) %></td>
+				<td><%= number_to_currency(@team.salary17, precision: 0) %></td>
+				<td><%= number_to_currency(@team.salary18, precision: 0) %></td>
+			</tr>
+		</tbody>
+	</table>
+	<p>2014-15 Salary Cap: $63,065,000</p>
+</section>
+
+</div>

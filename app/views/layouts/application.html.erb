@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SportsSite</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+	<%= link_to '<span class="glyphicon glyphicon-home"></span>'.html_safe, root_path, class: 'navbar-brand' %>
+	<ul class="nav navbar-nav">
+		<li class="dropdown">
+			<%= link_to "Teams<span class='caret'></span>".html_safe, '#', class: 'dropdown-toggle', "data-toggle" => 'dropdown' %>
+			<ul class="dropdown-menu" role="menu" style="width: 300px;">
+				<div style="float: left; width: 150px;">
+					<li role="presentation" class="dropdown-header">Atlantic</li>
+					<li><%= link_to 'Celtics', '/celtics' %></li>
+					<li><%= link_to 'Nets', '/nets' %></li>
+					<li><%= link_to 'Knicks', '/knicks' %></li>
+					<li><%= link_to '76ers', '/76ers' %></li>
+					<li><%= link_to 'Raptors', '/raptors' %></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation" class="dropdown-header">Central</li>
+					<li><%= link_to 'Bulls', '/bulls' %></li>
+					<li><%= link_to 'Cavaliers', '/cavaliers' %></li>
+					<li><%= link_to 'Pistons', '/pistons' %></li>
+					<li><%= link_to 'Pacers', '/pacers' %></li>
+					<li><%= link_to 'Bucks', '/bucks' %></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation" class="dropdown-header">Southeast</li>
+					<li><%= link_to 'Hawks', '/hawks' %></li>
+					<li><%= link_to 'Hornets', '/hornets' %></li>
+					<li><%= link_to 'Heat', '/heat' %></li>
+					<li><%= link_to 'Magic', '/magic' %></li>
+					<li><%= link_to 'Wizards', '/wizards' %></li>
+					<li role="presentation" class="divider"></li>
+				</div>
+				<div style="float: left; clear: right;">
+					<li role="presentation" class="dropdown-header">Pacific</li>
+					<li><%= link_to 'Warriors', '/warriors' %></li>
+					<li><%= link_to 'Clippers', '/clippers' %></li>
+					<li><%= link_to 'Lakers', '/lakers' %></li>
+					<li><%= link_to 'Suns', '/suns' %></li>
+					<li><%= link_to 'Kings', '/kings' %></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation" class="dropdown-header">Southwest</li>
+					<li><%= link_to 'Mavericks', '/mavericks' %></li>
+					<li><%= link_to 'Rockets', '/rockets' %></li>
+					<li><%= link_to 'Grizzlies', '/grizzlies' %></li>
+					<li><%= link_to 'Pelicans', '/pelicans' %></li>
+					<li><%= link_to 'Spurs', '/spurs' %></li>
+					<li role="presentation" class="divider"></li>
+					<li role="presentation" class="dropdown-header">Northwest</li>
+					<li><%= link_to 'Nuggets', '/nuggets' %></li>
+					<li><%= link_to 'Timberwolves', '/timberwolves' %></li>
+					<li><%= link_to 'Thunder', '/thunder' %></li>
+					<li><%= link_to 'Trailblazers', '/trailblazers' %></li>
+					<li><%= link_to 'Jazz', '/jazz' %></li>
+				</div>
+			</ul>
+		</li>
+		<li><%= link_to 'Player Rankings', '/static_pages/player_rankings' %></li>
+		<li><%= link_to 'Contracts', '/static_pages/contracts' %></li>
+		<li><%= link_to 'Madden Player Ratings', '/static_pages/madden' %></li>
+	</ul>
+	
+	<%= form_tag '/static_pages/search', method: 'get', class: 'navbar-form navbar-right' do %>
+	  <div class="form-group">
+	  	<%= search_field_tag :search, params[:search], class: 'form-control', placeholder: 'player search' %>
+	  </div>
+	  <%= submit_tag "Search", :name => nil, class: 'btn btn-default' %>
+	<% end %>
+</nav>
+
+<div class="container-fluid">
+	<%= yield %>
+</div>
+
+</body>
+</html>
