@@ -40,7 +40,7 @@
 	<div id="analysis">
 		<!-- <h4>4th Center - - - 26th Overall</h4> -->
 		<h4>
-			<% if @player.position_rank > 0 %>
+			<% if @player.position_rank %>
 				<%= "#{@player.position_rank.ordinalize} #{@player.position.name} - - - #{@player.overall_rank.ordinalize} Overall" %>
 			<% else %>
 				Analysis
