@@ -26,12 +26,12 @@
 				<% while i < len %>
 					<tr>
 						<td><%= i + 1 %></td>
-						<td><%= link_to @players[i].name, "/#{@players[i].team.name.downcase}/#{@players[i].link}" if @players[i] %></td>
-						<td><%= link_to @point_guards[i].name, "/#{@point_guards[i].team.name.downcase}/#{@point_guards[i].link}" if @point_guards[i] %></td>
-						<td><%= link_to @shooting_guards[i].name, "/#{@shooting_guards[i].team.name.downcase}/#{@shooting_guards[i].link}" if @shooting_guards[i] %></td>
-						<td><%= link_to @small_forwards[i].name, "/#{@small_forwards[i].team.name.downcase}/#{@small_forwards[i].link}" if @small_forwards[i] %></td>
-						<td><%= link_to @power_forwards[i].name, "/#{@power_forwards[i].team.name.downcase}/#{@power_forwards[i].link}" if @power_forwards[i] %></td>
-						<td><%= link_to @centers[i].name, "/#{@centers[i].team.name.downcase}/#{@centers[i].link}" if @centers[i] %></td>
+						<td><%= link_to @players[i].name, "/player/#{@players[i].link}" if @players[i] %></td>
+						<td><%= link_to @point_guards[i].name, "/player/#{@point_guards[i].link}" if @point_guards[i] %></td>
+						<td><%= link_to @shooting_guards[i].name, "/player/#{@shooting_guards[i].link}" if @shooting_guards[i] %></td>
+						<td><%= link_to @small_forwards[i].name, "/player/#{@small_forwards[i].link}" if @small_forwards[i] %></td>
+						<td><%= link_to @power_forwards[i].name, "/player/#{@power_forwards[i].link}" if @power_forwards[i] %></td>
+						<td><%= link_to @centers[i].name, "/player/#{@centers[i].link}" if @centers[i] %></td>
 					</tr>
 					<% i += 1 %>
 				<% end %>
@@ -61,12 +61,12 @@
 				<% while i < 100 %>
 					<tr>
 						<td><%= i + 1 %></td>
-						<td><%= link_to "#{@players_shooting[i].name} (#{@players_shooting[i].shooting})", "/#{@players_shooting[i].team.name.downcase}/#{@players_shooting[i].link}" if @players_shooting[i] %></td>
-						<td><%= link_to "#{@point_guards_shooting[i].name} (#{@point_guards_shooting[i].shooting})", "/#{@point_guards_shooting[i].team.name.downcase}/#{@point_guards_shooting[i].link}" if @point_guards_shooting[i] %></td>
-						<td><%= link_to "#{@shooting_guards_shooting[i].name} (#{@shooting_guards_shooting[i].shooting})", "/#{@shooting_guards_shooting[i].team.name.downcase}/#{@shooting_guards_shooting[i].link}" if @shooting_guards_shooting[i] %></td>
-						<td><%= link_to "#{@small_forwards_shooting[i].name} (#{@small_forwards_shooting[i].shooting})", "/#{@small_forwards_shooting[i].team.name.downcase}/#{@small_forwards_shooting[i].link}" if @small_forwards_shooting[i] %></td>
-						<td><%= link_to "#{@power_forwards_shooting[i].name} (#{@power_forwards_shooting[i].shooting})", "/#{@power_forwards_shooting[i].team.name.downcase}/#{@power_forwards_shooting[i].link}" if @power_forwards_shooting[i] %></td>
-						<td><%= link_to "#{@centers_shooting[i].name} (#{@centers_shooting[i].shooting})", "/#{@centers_shooting[i].team.name.downcase}/#{@centers_shooting[i].link}" if @centers[i] %></td>
+						<td><%= link_to "#{@players_shooting[i].name} (#{@players_shooting[i].shooting})", "/player/#{@players_shooting[i].link}" if @players_shooting[i] %></td>
+						<td><%= link_to "#{@point_guards_shooting[i].name} (#{@point_guards_shooting[i].shooting})", "/player/#{@point_guards_shooting[i].link}" if @point_guards_shooting[i] %></td>
+						<td><%= link_to "#{@shooting_guards_shooting[i].name} (#{@shooting_guards_shooting[i].shooting})", "/player/#{@shooting_guards_shooting[i].link}" if @shooting_guards_shooting[i] %></td>
+						<td><%= link_to "#{@small_forwards_shooting[i].name} (#{@small_forwards_shooting[i].shooting})", "/player/#{@small_forwards_shooting[i].link}" if @small_forwards_shooting[i] %></td>
+						<td><%= link_to "#{@power_forwards_shooting[i].name} (#{@power_forwards_shooting[i].shooting})", "/player/#{@power_forwards_shooting[i].link}" if @power_forwards_shooting[i] %></td>
+						<td><%= link_to "#{@centers_shooting[i].name} (#{@centers_shooting[i].shooting})", "/player/#{@centers_shooting[i].link}" if @centers[i] %></td>
 					</tr>
 					<% i += 1 %>
 				<% end %>
@@ -90,11 +90,11 @@
 				<% while i < 20 %>
 					<tr>
 						<td><%= i + 1 %></td>
-						<td><%= link_to @point_guards_defense[i].name, "/#{@point_guards_defense[i].team.name.downcase}/#{@point_guards_defense[i].link}" if @point_guards_defense[i] %></td>
-						<td><%= link_to @shooting_guards_defense[i].name, "/#{@shooting_guards_defense[i].team.name.downcase}/#{@shooting_guards_defense[i].link}" if @shooting_guards_defense[i] %></td>
-						<td><%= link_to @small_forwards_defense[i].name, "/#{@small_forwards_defense[i].team.name.downcase}/#{@small_forwards_defense[i].link}" if @small_forwards_defense[i] %></td>
-						<td><%= link_to @power_forwards_defense[i].name, "/#{@power_forwards_defense[i].team.name.downcase}/#{@power_forwards_defense[i].link}" if @power_forwards_defense[i] %></td>
-						<td><%= link_to @centers_defense[i].name, "/#{@centers_defense[i].team.name.downcase}/#{@centers_defense[i].link}" if @centers_defense[i] %></td>
+						<td><%= link_to @point_guards_defense[i].name, "/player/#{@point_guards_defense[i].link}" if @point_guards_defense[i] %></td>
+						<td><%= link_to @shooting_guards_defense[i].name, "/player/#{@shooting_guards_defense[i].link}" if @shooting_guards_defense[i] %></td>
+						<td><%= link_to @small_forwards_defense[i].name, "/player/#{@small_forwards_defense[i].link}" if @small_forwards_defense[i] %></td>
+						<td><%= link_to @power_forwards_defense[i].name, "/player/#{@power_forwards_defense[i].link}" if @power_forwards_defense[i] %></td>
+						<td><%= link_to @centers_defense[i].name, "/player/#{@centers_defense[i].link}" if @centers_defense[i] %></td>
 					</tr>
 					<% i += 1 %>
 				<% end %>

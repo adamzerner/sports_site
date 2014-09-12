@@ -3,6 +3,6 @@
 <br />
 <ul class="list-group">
 	<% @results.each do |player| %>
-		<li class="list-group-item"><%= link_to player.name, "/#{player.team.name}/#{player.name}" %></li>
+		<li class="list-group-item"><%= link_to player.name, "/player/#{player.name}" %></li>
 	<% end %>
 </ul>
