@@ -3,7 +3,7 @@ class StaticPagesController < ApplicationController
 	end
 
 	def player
-		@player = Player.where("name like ?", "%#{params[:player]}%")[0]
+		@player = Player.where("name ilike ?", "%#{params[:player]}%")[0]
 		@player = Player.find_by(name: params[:player].gsub("_", " ").titleize) if @player == nil
 	end
 
