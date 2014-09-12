@@ -5,6 +5,6 @@ Rails.application.routes.draw do
 	get 'static_pages/madden'
 	get 'madden/:team', to: 'static_pages#madden_team'
 	get 'static_pages/search'
-	get ':team', to: 'teams#team'
-	get ':team/:player', to: 'static_pages#player'
+	get 'team/:team', to: 'teams#team'
+	get 'player/:player', to: 'static_pages#player'
 end

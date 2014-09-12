@@ -31,7 +31,8 @@
 						<% @point_guards.each do |pg| %>
 							<% puts pg.name # working %>
 							<%= content_tag :td, class: "tier#{pg.tier}" do -%>
-								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+								<!-- <%= # link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %> -->
+								<%= link_to pg.name, "/player/#{pg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -39,7 +40,7 @@
 						<td>SG</td>
 						<% @shooting_guards.each do |sg| %>
 							<%= content_tag :td, class: "tier#{sg.tier}" do -%>
-								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+								<%= link_to sg.name, "/player/#{sg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -47,7 +48,7 @@
 						<td>SF</td>
 						<% @small_forwards.each do |sf| %>
 							<%= content_tag :td, class: "tier#{sf.tier}" do -%>
-								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+								<%= link_to sf.name, "/player/#{sf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -55,7 +56,7 @@
 						<td>PF</td>
 						<% @power_forwards.each do |pf| %>
 							<%= content_tag :td, class: "tier#{pf.tier}" do -%>
-								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+								<%= link_to pf.name, "/player/#{pf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -63,7 +64,7 @@
 						<td>C</td>
 						<% @centers.each do |c| %>
 							<%= content_tag :td, class: "tier#{c.tier}" do -%>
-								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+								<%= link_to c.name, "/player/#{c.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -95,7 +96,7 @@
 						<td>PG</td>
 						<% @point_guards.each do |pg| %>
 							<%= content_tag :td, class: "tier#{pg.shooting_tier}" do -%>
-								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+								<%= link_to pg.name, "/player/#{pg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -103,7 +104,7 @@
 						<td>SG</td>
 						<% @shooting_guards.each do |sg| %>
 							<%= content_tag :td, class: "tier#{sg.shooting_tier}" do -%>
-								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+								<%= link_to sg.name, "/player/#{sg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -111,7 +112,7 @@
 						<td>SF</td>
 						<% @small_forwards.each do |sf| %>
 							<%= content_tag :td, class: "tier#{sf.shooting_tier}" do -%>
-								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+								<%= link_to sf.name, "/player/#{sf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -119,7 +120,7 @@
 						<td>PF</td>
 						<% @power_forwards.each do |pf| %>
 							<%= content_tag :td, class: "tier#{pf.shooting_tier}" do -%>
-								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+								<%= link_to pf.name, "/player/#{pf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -127,7 +128,7 @@
 						<td>C</td>
 						<% @centers.each do |c| %>
 							<%= content_tag :td, class: "tier#{c.shooting_tier}" do -%>
-								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+								<%= link_to c.name, "/player/#{c.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -158,7 +159,7 @@
 						<td>PG</td>
 						<% @point_guards.each do |pg| %>
 							<%= content_tag :td, class: "tier#{pg.defense_tier}" do -%>
-								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+								<%= link_to pg.name, "/player/#{pg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -166,7 +167,7 @@
 						<td>SG</td>
 						<% @shooting_guards.each do |sg| %>
 							<%= content_tag :td, class: "tier#{sg.defense_tier}" do -%>
-								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+								<%= link_to sg.name, "/player/#{sg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -174,7 +175,7 @@
 						<td>SF</td>
 						<% @small_forwards.each do |sf| %>
 							<%= content_tag :td, class: "tier#{sf.defense_tier}" do -%>
-								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+								<%= link_to sf.name, "/player/#{sf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -182,7 +183,7 @@
 						<td>PF</td>
 						<% @power_forwards.each do |pf| %>
 							<%= content_tag :td, class: "tier#{pf.defense_tier}" do -%>
-								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+								<%= link_to pf.name, "/player/#{pf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -190,7 +191,7 @@
 						<td>C</td>
 						<% @centers.each do |c| %>
 							<%= content_tag :td, class: "tier#{c.defense_tier}" do -%>
-								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+								<%= link_to c.name, "/player/#{c.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -221,7 +222,7 @@
 						<td>PG</td>
 						<% @point_guards.each do |pg| %>
 							<%= content_tag :td, class: "tier#{pg.tier}" do -%>
-								<%= link_to "#{pg.name} #{pg.height}", "/#{@team.name.downcase}/#{pg.link}" %>
+								<%= link_to "#{pg.name} #{pg.height}", "/player/#{pg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -229,7 +230,7 @@
 						<td>SG</td>
 						<% @shooting_guards.each do |sg| %>
 							<%= content_tag :td, class: "tier#{sg.tier}" do -%>
-								<%= link_to "#{sg.name} #{sg.height}", "/#{@team.name.downcase}/#{sg.link}" %>
+								<%= link_to "#{sg.name} #{sg.height}", "/player/#{sg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -237,7 +238,7 @@
 						<td>SF</td>
 						<% @small_forwards.each do |sf| %>
 							<%= content_tag :td, class: "tier#{sf.tier}" do -%>
-								<%= link_to "#{sf.name} #{sf.height}", "/#{@team.name.downcase}/#{sf.link}" %>
+								<%= link_to "#{sf.name} #{sf.height}", "/player/#{sf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -245,7 +246,7 @@
 						<td>PF</td>
 						<% @power_forwards.each do |pf| %>
 							<%= content_tag :td, class: "tier#{pf.tier}" do -%>
-								<%= link_to "#{pf.name} #{pf.height}", "/#{@team.name.downcase}/#{pf.link}" %>
+								<%= link_to "#{pf.name} #{pf.height}", "/player/#{pf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -253,7 +254,7 @@
 						<td>C</td>
 						<% @centers.each do |c| %>
 							<%= content_tag :td, class: "tier#{c.tier}" do -%>
-								<%= link_to "#{c.name} #{c.height}", "/#{@team.name.downcase}/#{c.link}" %>
+								<%= link_to "#{c.name} #{c.height}", "/player/#{c.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -286,7 +287,7 @@
 						<td>PG</td>
 						<% @point_guards.each do |pg| %>
 							<%= content_tag :td do -%>
-								<%= link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %>
+								<%= link_to pg.name, "/player/#{pg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -294,7 +295,7 @@
 						<td>SG</td>
 						<% @shooting_guards.each do |sg| %>
 							<%= content_tag :td do -%>
-								<%= link_to sg.name, "/#{@team.name.downcase}/#{sg.link}" %>
+								<%= link_to sg.name, "/player/#{sg.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -302,7 +303,7 @@
 						<td>SF</td>
 						<% @small_forwards.each do |sf| %>
 							<%= content_tag :td do -%>
-								<%= link_to sf.name, "/#{@team.name.downcase}/#{sf.link}" %>
+								<%= link_to sf.name, "/player/#{sf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -310,7 +311,7 @@
 						<td>PF</td>
 						<% @power_forwards.each do |pf| %>
 							<%= content_tag :td do -%>
-								<%= link_to pf.name, "/#{@team.name.downcase}/#{pf.link}" %>
+								<%= link_to pf.name, "/player/#{pf.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>
@@ -318,7 +319,7 @@
 						<td>C</td>
 						<% @centers.each do |c| %>
 							<%= content_tag :td do -%>
-								<%= link_to c.name, "/#{@team.name.downcase}/#{c.link}" %>
+								<%= link_to c.name, "/player/#{c.link}" %>
 							<% end -%>
 						<% end %>
 					</tr>

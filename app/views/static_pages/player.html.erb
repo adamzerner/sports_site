@@ -1,7 +1,7 @@
 <div id="player_css">
 
 <div class="page-header">
-  <h1><%= @player.name %> <small><%= link_to "#{@player.team.location} #{@player.team.name}", "/#{@player.team.name.downcase}" %></small></h1>
+  <h1><%= @player.name %> <small><%= link_to "#{@player.team.location} #{@player.team.name}", "/team/#{@player.team.name.downcase}" %></small></h1>
 </div>
 
 <section id="top">
