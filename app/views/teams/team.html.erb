@@ -31,7 +31,6 @@
 						<% @point_guards.each do |pg| %>
 							<% puts pg.name # working %>
 							<%= content_tag :td, class: "tier#{pg.tier}" do -%>
-								<!-- <%= # link_to pg.name, "/#{@team.name.downcase}/#{pg.link}" %> -->
 								<%= link_to pg.name, "/player/#{pg.link}" %>
 							<% end -%>
 						<% end %>
