@@ -7,4 +7,5 @@ Rails.application.routes.draw do
 	get 'static_pages/search'
 	get 'team/:team', to: 'teams#team'
 	get 'player/:player', to: 'static_pages#player'
+	get 'articles/index', to: 'articles#index'
 end
